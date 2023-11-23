@@ -28,29 +28,29 @@ public class Game {
 
     public static Game init(Scanner scanner) {
         System.out.println("Запуск игры \"Поле Чудес\" - подготовка к игре. Вам нужно ввести вопросы и ответы для игры.");
-        Game OurGame = new Game();
+        Game newGame = new Game();
         for (int i = 1; i <= Game.rounds; i++) {
             System.out.printf("Введите вопрос #%d \n", i);
             String newQuestion = scanner.nextLine();
             System.out.print("Введите ответ на этот вопрос \n");
             String newAnswer = scanner.nextLine();
-            OurGame.setNewQuestion(i, newQuestion, newAnswer);
+            newGame.setNewQuestion(i, newQuestion, newAnswer);
         }
 
-        return OurGame;
+        return newGame;
      }
 
     //Мок-объект. Заполняет список вопросов и ответов
      public static Game initMock() {
         System.out.println("Запуск игры \"Поле Чудес\" - подготовка к игре. Вам нужно ввести вопросы и ответы для игры.");
-        Game OurGame = new Game();
-        OurGame.setNewQuestion(1, "Что не губит людей, в отличии от воды?", "Пиво");
-        OurGame.setNewQuestion(2, "Что мешает бетон, пока бригадир жрёт самогон?", "Бетономешалка");
-        OurGame.setNewQuestion(3, "Птица семейства Ястребиные?", "Орел");
-        OurGame.setNewQuestion(4, "Имя первого косманавта?", "Юра");
+        Game newGame = new Game();
+         newGame.setNewQuestion(1, "Что не губит людей, в отличии от воды?", "Пиво");
+         newGame.setNewQuestion(2, "Что мешает бетон, пока бригадир жрёт самогон?", "Бетономешалка");
+         newGame.setNewQuestion(3, "Птица семейства Ястребиные?", "Орел");
+         newGame.setNewQuestion(4, "Имя первого косманавта?", "Юра");
 
-         OurGame.printAllQuestionForMock();
-        return OurGame;
+         newGame.printAllQuestionForMock();
+        return newGame;
     }
 
 }
