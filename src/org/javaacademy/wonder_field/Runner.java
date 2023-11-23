@@ -11,7 +11,6 @@ public class Runner {
         //Game newGame = Game.init(scanner);
         Game newGame = Game.initMock();
 
-
         System.out.println("Иницализация закончена, игра начнется через");
 
         try {

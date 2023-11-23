@@ -8,7 +8,6 @@ public class Game {
     private static final int roundsOfGroup = 3;
     private static final int indexOfFinalRound = 3;
 
-
     private final String[] questionList;
     private final String[] answerList;
     Game(){
