@@ -7,9 +7,9 @@ public class Runner {
     public static Scanner scanner = new Scanner(System.in);
     public static void runGame() {
 
-        //Раскомментировать для ввода вопросов из консоли
-        //Game newGame = Game.init(scanner);
-        Game newGame = Game.initMock();
+        Game newGame = Game.init(scanner);
+        //Раскомментировать для мока вопросов
+        //Game newGame = Game.initMock();
 
         System.out.println("Иницализация закончена, игра начнется через");
 
