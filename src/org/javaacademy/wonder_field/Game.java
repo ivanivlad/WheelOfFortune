@@ -1,4 +1,4 @@
-package org.javaacadmey.wonder_field;
+package org.javaacademy.wonder_field;
 
 import java.util.Scanner;
 

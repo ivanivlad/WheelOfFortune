@@ -1,4 +1,4 @@
-import org.javaacadmey.wonder_field.Runner;
+import org.javaacademy.wonder_field.Runner;
 
 public class Main {
 
