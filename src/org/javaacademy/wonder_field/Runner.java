@@ -8,8 +8,6 @@ public class Runner {
     public static void runGame() {
 
         Game newGame = Game.init(scanner);
-        //Раскомментировать для мока вопросов
-        //Game newGame = Game.initMock();
 
         System.out.println("Иницализация закончена, игра начнется через");
 
