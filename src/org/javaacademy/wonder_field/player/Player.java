@@ -24,15 +24,10 @@ public class Player {
     }
 
     public PlayerAnswer nextAttempt(Scanner scanner){
-
         System.out.printf("Ход игрока %s, %s\n", name, city);
-
         while (true) {
-
             System.out.println("Если хотите букву нажмите 'б' и enter, если хотите слово нажмите 'c' и enter");
-
             String newAnswer = scanner.nextLine();
-
             if (newAnswer.equals("б")) {
                 return sayLetter(scanner);
             } else if (newAnswer.equals("с")) {
