@@ -40,7 +40,7 @@ public class Tableau {
     }
 
     public boolean hasUnknownLetters(){
-        return Arrays.binarySearch(letters, UNKNOWN_SYMBOL) != -1;
+        return Arrays.binarySearch(letters, UNKNOWN_SYMBOL) > 0;
     }
 
     public boolean attributesIsEmpty(){
