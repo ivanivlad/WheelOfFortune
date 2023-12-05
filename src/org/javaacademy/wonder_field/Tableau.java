@@ -1,49 +1,58 @@
 package org.javaacademy.wonder_field;
 
-import java.util.Arrays;
-
 public class Tableau {
-    private static final Character UNKNOWN_SYMBOL = '_';
-    String correctAnswer;
-    char[] letters;
+    private static final String UNKNOWN_SYMBOL = "_";
 
-    public void init(String Answer){
-        correctAnswer = Answer;
-        letters = UNKNOWN_SYMBOL.toString().repeat(Answer.length()).toCharArray();
+    private String correctAnswer;
+    private String[] letters;
+
+    public void init(String answer) {
+        correctAnswer = answer;
+        letters = UNKNOWN_SYMBOL.repeat(answer.length()).split("");
     }
 
-    public void printTableau(){
-        if (attributesIsEmpty()){
-            return;
-        }
-        for (char letter: letters) {
+    public void printTableau() {
+        checkAttributes();
+
+        for (String letter : letters) {
             System.out.print(letter);
             System.out.print(" ");
         }
         System.out.print("\n");
     }
 
-    public void openLetter(String letter){
-        if (attributesIsEmpty()){
-            return;
-        }
+    public void openLetter(String letter) {
+        checkAttributes();
+
         int indexOf = -1;
-        while (correctAnswer.indexOf(letter, indexOf + 1) != -1)
-        {
+        while (correctAnswer.indexOf(letter, indexOf + 1) != -1) {
             indexOf = correctAnswer.indexOf(letter, indexOf + 1);
-            letters[indexOf] = correctAnswer.charAt(indexOf);
+            letters[indexOf] = correctAnswer.substring(indexOf, indexOf + 1);
         }
     }
 
-    public void openWord(){
-        letters = correctAnswer.toCharArray();
+    public void openWord() {
+        letters = correctAnswer.split("");
     }
 
-    public boolean hasUnknownLetters(){
-        return Arrays.binarySearch(letters, UNKNOWN_SYMBOL) > 0;
+    public boolean hasUnknownLetters() {
+        for (String letter : letters) {
+            if (letter.equals(UNKNOWN_SYMBOL)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean attributesIsEmpty(){
-        return letters.length == 0 || correctAnswer.isEmpty();
+    public void checkAttributes() {
+        if (letters.length == 0) {
+            throw new IndexOutOfBoundsException("Буквы табло не должны быть пустыми");
+        } else if (correctAnswer.isEmpty()) {
+            throw new IndexOutOfBoundsException("Ответ не должен быть пустым");
+        }
+    }
+
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 }

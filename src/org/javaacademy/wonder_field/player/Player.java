@@ -1,37 +1,37 @@
 package org.javaacademy.wonder_field.player;
 
-import java.util.Scanner;
+import org.javaacademy.wonder_field.Game;
 
 public class Player {
     public String name;
     public String city;
 
-    public Player(String name, String city){
+    public Player(String name, String city) {
         this.name = name;
         this.city = city;
     }
 
-    public PlayerAnswer sayLetter(Scanner scanner){
-        String newLetter = scanner.nextLine();
+    public PlayerAnswer sayLetter() {
+        String newLetter = Game.scanner.nextLine();
         System.out.printf("Игрок %s: буква %s \n", name, newLetter);
-        return new PlayerAnswer(PlayerAnswer.TypeAnswer.LETTER, newLetter.toUpperCase());
+        return new PlayerAnswer(TypeAnswer.LETTER, newLetter.toUpperCase());
     }
 
-    public PlayerAnswer sayWord(Scanner scanner){
-        String newWord = scanner.nextLine();
+    public PlayerAnswer sayWord() {
+        String newWord = Game.scanner.nextLine();
         System.out.printf("Игрок %s: слово %s \n", name, newWord);
-        return new PlayerAnswer(PlayerAnswer.TypeAnswer.WORD, newWord.toUpperCase());
+        return new PlayerAnswer(TypeAnswer.WORD, newWord.toUpperCase());
     }
 
-    public PlayerAnswer nextAttempt(Scanner scanner){
+    public PlayerAnswer nextAttempt() {
         System.out.printf("Ход игрока %s, %s\n", name, city);
         while (true) {
             System.out.println("Если хотите букву нажмите 'б' и enter, если хотите слово нажмите 'c' и enter");
-            String newAnswer = scanner.nextLine();
+            String newAnswer = Game.scanner.nextLine();
             if (newAnswer.equals("б")) {
-                return sayLetter(scanner);
+                return sayLetter();
             } else if (newAnswer.equals("с")) {
-                return sayWord(scanner);
+                return sayWord();
             } else {
                 System.out.println("Некорректное значение, введите 'б' или 'с'");
             }
