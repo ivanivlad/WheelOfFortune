@@ -25,7 +25,7 @@ public class Yakubovich {
     private String concatNames(Player[] players) {
         StringJoiner joiner = new StringJoiner(", ");
         for (Player player : players) {
-            joiner.add(player.name);
+            joiner.add(player.getName());
         }
         return joiner.toString();
     }
@@ -43,7 +43,7 @@ public class Yakubovich {
     }
 
     public boolean isCorrectLetter(String letter, String answer) {
-        boolean isCorrect = answer.contains(letter);
+        boolean isCorrect = !letter.isEmpty() && answer.contains(letter);
         if (isCorrect) {
             System.out.println("Якубович: Есть такая буква, откройте ее!");
         } else {
@@ -54,7 +54,7 @@ public class Yakubovich {
     }
 
     public boolean isCorrectWord(String playerAnswer, String answer) {
-        boolean isCorrect = answer.equals(playerAnswer);
+        boolean isCorrect = !playerAnswer.isEmpty() && answer.equals(playerAnswer);
         if (isCorrect) {
             System.out.printf("Якубович: %s! Абсолютно верно!\n", answer);
         } else {

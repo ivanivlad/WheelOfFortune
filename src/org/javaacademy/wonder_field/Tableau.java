@@ -45,11 +45,15 @@ public class Tableau {
     }
 
     public void checkAttributes() {
-        if (letters.length == 0) {
-            throw new IndexOutOfBoundsException("Буквы табло не должны быть пустыми");
-        } else if (correctAnswer.isEmpty()) {
-            throw new IndexOutOfBoundsException("Ответ не должен быть пустым");
-        }
+       try {
+           if (letters.length == 0) {
+               throw new EmptyAttribute("Не заполнены буквы табло");
+           } else if (correctAnswer.isEmpty()) {
+               throw new EmptyAttribute("Не задан ответ");
+           }
+       }catch (EmptyAttribute e) {
+           System.out.println(e.getMessage());
+       }
     }
 
     public String getCorrectAnswer() {

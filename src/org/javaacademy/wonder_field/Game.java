@@ -46,7 +46,7 @@ public class Game {
         }
     }
 
-    public void init() throws InterruptedException {
+    public void init() {
         System.out.println("Запуск игры \"Поле Чудес\" - подготовка к игре. Вам нужно ввести вопросы и ответы для игры.");
 
         for (int i = 1; i <= Game.ROUNDS_TOTAL; i++) {
@@ -59,7 +59,11 @@ public class Game {
 
         System.out.println("Иницализация закончена, игра начнется через 5 секунд");
 
-        Thread.sleep(5000);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e ) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println("\n".repeat(50));
 
@@ -127,7 +131,7 @@ public class Game {
             for (Player player : players) {
                 boolean playerWin = playerMove(player);
                 if (playerWin) {
-                    yakubovich.sayWin(player.name, player.city, isFinalRound);
+                    yakubovich.sayWin(player.getName(), player.getCity(), isFinalRound);
                     if (!isFinalRound) {
                         winners[roundIndex] = player;
                     }

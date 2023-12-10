@@ -1,7 +1,6 @@
 package org.javaacademy.wonder_field.player;
 
 public class PlayerAnswer {
-
     public TypeAnswer typeAnswer;
     public String answer;
 
